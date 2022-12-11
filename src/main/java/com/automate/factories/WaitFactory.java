@@ -1,6 +1,7 @@
 package com.automate.factories;
 
 import com.automate.constants.FrameworkConstants;
+import com.automate.driver.DriverManager;
 import com.automate.enums.WaitStrategy;
 import io.appium.java_client.MobileElement;
 import org.openqa.selenium.By;

@@ -4,8 +4,6 @@ import base.BaseTest;
 import com.automate.customAnnotations.FrameworkAnnotation;
 import com.automate.driver.DriverManager;
 import com.automate.enums.CategoryType;
-import com.automate.pages.screen.ScreenActions;
-import com.automate.pages.spadesapp.BillPayment;
 import com.automate.utils.configloader.JsonUtils;
 import org.testng.annotations.Test;
 
@@ -17,8 +15,8 @@ public class BillPamentTest extends BaseTest {
     @Test(description = "BillpaymentProcess")
     public void billPaymentProcess() throws IOException {
         DriverManager.getDriver().get(JsonUtils.getValue("url"));
-        ScreenActions.staticWait(2);
-        BillPayment.LandingToSpadesApplication();
+//        ScreenActions.staticWait(2);
+     //   BillPayment.LandingToSpadesApplication();
       //  BillPayment.enterTablenumber("99");
     }
 }

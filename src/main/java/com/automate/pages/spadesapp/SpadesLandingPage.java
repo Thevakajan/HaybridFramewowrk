@@ -1,48 +1,47 @@
 package com.automate.pages.spadesapp;
 
 import org.openqa.selenium.By;
-
-
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
-
+import java.io.IOException;
 import static com.automate.pages.screen.PageActionHelper.isElementNotEnabled;
+import static com.automate.pages.screen.PageActionHelper.waitAndClick;
 
 
 public class SpadesLandingPage {
-
     private static  By LOGO_Display = By.xpath("//img[@data-id='logo']");
+    private static  By View_MenuClick = By.xpath("//*[@data-id='viewmenu_btn']");
+    private static  By outletName = By.xpath("//*[@data-id='viewmenu_btn']");
+    private static  By tableCount = By.xpath("//*[@data-id='table']");
+    private static  By refreshButton = By.xpath("//*[@data-id='refresh_bill']//span");
+    private static  By not_your_table = By.xpath("//*[@data-id='not_your_table_btn']");
 
 
-    @FindBy(xpath = "//img[@data-id='logo']")
-    private static WebElement logo;
 
 
-
-    private static boolean  isLandingPagePageDisplayed(){
+    public static boolean  isLandingPagePageDisplayed(){
         return isElementNotEnabled(LOGO_Display);
 
-
-//              NewDriverManager.getDriver().findElement(LOGO_Display).isDisplayed();
     }
-    //***Restaurant Details**
+    public static boolean  isOutletNameDisplayed(){
+        return isElementNotEnabled(outletName);
 
-    public static void LandingToSpadesApplication(){
-        isLandingPagePageDisplayed();
+    }
+    public static boolean  isViewMenuDisplayed(){
+        return isElementNotEnabled(View_MenuClick);
+
+    }
+    public static boolean  isTableNumDisplayed(){
+        return isElementNotEnabled(tableCount);
+
+    }
+     public static void ViewMenuClick() throws IOException {
+         waitAndClick(View_MenuClick,"Landing Page View Menu Click ");
      }
-
-    @FindBy(xpath = "//a[@data-id='outlet_name_btn']")
-    private static WebElement outletName;
-
-    @FindBy(xpath = "//a[@data-id='viewmenu_btn']")
-    private static WebElement viewMenu;
-
-    @FindBy(xpath = "menu_title")
-    private static WebElement titleMenu;
-
-    @FindBy(xpath = "//button[@type='button']")
-    private static WebElement pay;
-
+    public static void RefreshYourBillClick() throws IOException {
+        waitAndClick(refreshButton,"Refresh Your Bill Click ");
+    }
+    public static void NotYourTableClick() throws IOException {
+        waitAndClick(not_your_table,"Clicked on Not your table ");
+    }
 
 
 }

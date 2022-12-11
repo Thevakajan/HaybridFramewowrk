@@ -1,6 +1,7 @@
 package com.automate.utils.screenrecording;
 
 import com.automate.constants.FrameworkConstants;
+import com.automate.driver.DriverManager;
 import io.appium.java_client.screenrecording.CanRecordScreen;
 import org.apache.commons.codec.binary.Base64;
 import java.io.File;
