@@ -2,7 +2,9 @@
   "app_package": "com.swaglabsmobileapp",
   "app_activity": "com.swaglabsmobileapp.MainActivity",
   "appium_url": "http://127.0.0.1:4723/wd/hub",
+  "browserstack_url": "https://thevakajan:XMdjnSWeWk6TxI4ClvoiIDAUSva1baVEXXCMBG5KSQaoSVIItS@hub.lambdatest.com/wd/hub",
   "avd_launch_timeout": 180000,
   "bundle_id": "",
-  "url": "https://app.sandbox.spadesapp.io/landing/7SWJ869HY2TZ/63313dc03807b6001d1b052b"
+  "url": "https://app.qa.spadesapp.io/landing/7SWJ869HY2TZ/634fa7a8dd11f2001cb37d4f",
+  "admin_url": "https://admin.qa.spadesapp.io/"
 }

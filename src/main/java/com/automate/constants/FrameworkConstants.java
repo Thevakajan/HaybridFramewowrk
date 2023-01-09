@@ -33,7 +33,7 @@ public final class FrameworkConstants {
     @Getter
     private static final String configJsonPath = PROJECT_PATH + File.separator + "src/test/resources" + File.separator + "config" + File.separator + "config.json";
     @Getter
-    private static final long explicitWait = 15;
+    private static final long explicitWait = 20;
     @Getter
     private static final String testDataSheet = "TEST_DATA";
     @Getter
@@ -80,4 +80,5 @@ public final class FrameworkConstants {
         LocalDateTime localDateTime = LocalDateTime.now();
         return dateTimeFormatter.format(localDateTime);
     }
+
 }

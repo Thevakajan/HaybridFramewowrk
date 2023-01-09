@@ -17,10 +17,10 @@ public class DriverManager {
     private DriverManager() {
     }
 
-    private static ThreadLocal<WebDriver> MOBILE_DRIVER_THREAD_LOCAL = new ThreadLocal<>();
-    private static  ThreadLocal<WebDriver> threadLocalWebDriver = new ThreadLocal<>();
-    private static  ThreadLocal<PlatformType> CONTEXT = withInitial(()-> WEB);
-    private static final Map<PlatformType,ThreadLocal<WebDriver>> DRIVER_MAP = new EnumMap<>(PlatformType.class);
+    private static final ThreadLocal<WebDriver> MOBILE_DRIVER_THREAD_LOCAL = new ThreadLocal<>();
+    private static final ThreadLocal<WebDriver> threadLocalWebDriver = new ThreadLocal<>();
+    private static final ThreadLocal<PlatformType> CONTEXT = withInitial(()-> WEB);
+    public static  Map<PlatformType,ThreadLocal<WebDriver>> DRIVER_MAP = new EnumMap<>(PlatformType.class);
 
 
     public static WebDriver getDriver(){
@@ -28,6 +28,8 @@ public class DriverManager {
                 threadLocalWebDriver.get():MOBILE_DRIVER_THREAD_LOCAL.get();
 
     }
+
+
     public static void setAndWebDriver(WebDriver driver) {
       if (isMobileDriver(driver)){
           MOBILE_DRIVER_THREAD_LOCAL.set( driver);

@@ -42,26 +42,54 @@ public final class Drivers {
 
     }
 
-    public static AppiumDriver<MobileElement> createAndroidDriverForWeb( String device_name,String udid, int port, String emulator) throws IOException {
+//    public static AppiumDriver<MobileElement> createAndroidDriverForWeb( String device_name,String udid, int port, String emulator) throws IOException {
+//
+//            DesiredCapabilities capability = new DesiredCapabilities();
+//            capability.setCapability(CapabilityType.PLATFORM_NAME, Platform.ANDROID);
+//            capability.setCapability(MobileCapabilityType.DEVICE_NAME, device_name);
+//            capability.setCapability(MobileCapabilityType.AUTOMATION_NAME, AutomationName.ANDROID_UIAUTOMATOR2);
+//            capability.setCapability(MobileCapabilityType.UDID, udid);
+//            capability.setCapability(CapabilityType.BROWSER_NAME,"Chrome" );
+//            capability.setCapability("appium:chromeOptions", ImmutableMap.of("w3c", false));
+//
+//            capability.setCapability(AndroidMobileCapabilityType.CHROMEDRIVER_EXECUTABLE, Constants.CHROMEDRIVERPATH);
+//            capability.setCapability(AndroidMobileCapabilityType.CHROMEDRIVER_PORT, port); // For Web view/Chrome browser to launch the browser on different port
+//            if (emulator.equalsIgnoreCase("yes")) {
+//                capability.setCapability(AndroidMobileCapabilityType.AVD, "SMJ700F");
+//                capability.setCapability(AndroidMobileCapabilityType.AVD_LAUNCH_TIMEOUT, "avdLaunchTimeout");
+//            }
+//
+//          return new AndroidDriver<>(new URL(JsonUtils.getValue("appium_url")), capability);
+//
+//    }
+        public static AppiumDriver<MobileElement> createAndroidDriverForWeb( String device_name,String udid, int port, String emulator) throws IOException {
 
             DesiredCapabilities capability = new DesiredCapabilities();
+            capability.setCapability("build", "Android apk tests");
+            capability.setCapability("name", "Swag mobile app automation tests");
             capability.setCapability(CapabilityType.PLATFORM_NAME, Platform.ANDROID);
             capability.setCapability(MobileCapabilityType.DEVICE_NAME, device_name);
-            capability.setCapability(MobileCapabilityType.AUTOMATION_NAME, AutomationName.ANDROID_UIAUTOMATOR2);
+            capability.setCapability("platformVersion","11");
             capability.setCapability(MobileCapabilityType.UDID, udid);
+            capability.setCapability("appiumVersion","1.22.1");
             capability.setCapability(CapabilityType.BROWSER_NAME,"Chrome" );
-            capability.setCapability("appium:chromeOptions", ImmutableMap.of("w3c", false));
+            capability.setCapability("isRealMobile", true);
+            capability.setCapability("network", true);
+            capability.setCapability("visual", true);
+            capability.setCapability("console", true);
+            capability.setCapability("devicelog", true);
+          //  capability.setCapability("appium:chromeOptions", ImmutableMap.of("w3c", false));
 
-            capability.setCapability(AndroidMobileCapabilityType.CHROMEDRIVER_EXECUTABLE, Constants.CHROMEDRIVERPATH);
+           // capability.setCapability(AndroidMobileCapabilityType.CHROMEDRIVER_EXECUTABLE, Constants.CHROMEDRIVERPATH);
             capability.setCapability(AndroidMobileCapabilityType.CHROMEDRIVER_PORT, port); // For Web view/Chrome browser to launch the browser on different port
             if (emulator.equalsIgnoreCase("yes")) {
-                capability.setCapability(AndroidMobileCapabilityType.AVD, "SMJ700F");
+                capability.setCapability(AndroidMobileCapabilityType.AVD,  device_name);
                 capability.setCapability(AndroidMobileCapabilityType.AVD_LAUNCH_TIMEOUT, "avdLaunchTimeout");
             }
 
-          return new AndroidDriver<>(new URL(JsonUtils.getValue("appium_url")), capability);
+            return new AndroidDriver<>(new URL(JsonUtils.getValue("appium_url")), capability);
 
-    }
+        }
 
     public static AppiumDriver<MobileElement> createIOSDriverForNativeApp(String device_name, String udid, int port) throws IOException {
 
@@ -92,4 +120,6 @@ public final class Drivers {
         return new AndroidDriver<>(new URL(JsonUtils.getValue("appium_url")), capability);
 
     }
+
+
 }

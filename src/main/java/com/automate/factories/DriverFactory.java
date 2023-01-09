@@ -11,7 +11,6 @@ import java.util.Objects;
 public final class DriverFactory {
 
     private DriverFactory() {}
-
     public static void initializeDriver(MobilePlatformName mobilePlatformName, String devicename, String udid, int port, String emulator) throws IOException {
         AppiumDriver driver;
         switch (mobilePlatformName) {
@@ -39,4 +38,6 @@ public final class DriverFactory {
             DriverManager.unload();
         }
     }
+
+
 }

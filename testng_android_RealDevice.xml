@@ -6,14 +6,26 @@
 
     </listeners>
 
+<!--    <test name="Test-OnePlus5">-->
+<!--        <parameter name="emulator" value="no"></parameter>-->
+<!--        <parameter name="platformName" value="android"></parameter>-->
+<!--        <parameter name="udid" value="52036477fa53a363"></parameter>-->
+<!--        <parameter name="deviceName" value="SMJ700F"></parameter>-->
+<!--        <parameter name="systemPort" value="7878"/>-->
+<!--        <classes>-->
+
+<!--        </classes>-->
+<!--    </test> &lt;!&ndash; Test &ndash;&gt;-->
+
+
     <test name="Test-OnePlus5">
         <parameter name="emulator" value="no"></parameter>
         <parameter name="platformName" value="android"></parameter>
         <parameter name="udid" value="52036477fa53a363"></parameter>
-        <parameter name="deviceName" value="SMJ700F"></parameter>
+        <parameter name="deviceName" value="Galaxy S10"></parameter>
         <parameter name="systemPort" value="7878"/>
         <classes>
-
+            <class name="com.tests.mobileTest.SpadesWebLandingTest"/>
         </classes>
     </test> <!-- Test -->
 </suite> <!-- Suite -->

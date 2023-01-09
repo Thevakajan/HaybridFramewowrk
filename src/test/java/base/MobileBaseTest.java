@@ -13,9 +13,9 @@ import org.testng.annotations.*;
 import java.io.IOException;
 import java.util.Objects;
 
-public class BaseTest {
+public class MobileBaseTest {
 
-    protected BaseTest() {
+    protected MobileBaseTest() {
     }
 
     @BeforeSuite(alwaysRun = true)
@@ -26,13 +26,13 @@ public class BaseTest {
     @Parameters({"platformName", "udid", "deviceName", "systemPort", "chromeDriverPort", "emulator", "wdaLocalPort",
             "webkitDebugProxyPort"})
     @BeforeMethod
-    protected void setUp(String platformName, String udid, String deviceName, @Optional("androidOnly") String systemPort,
+    protected void setUp(String platformName, @Optional String udid, String deviceName, @Optional("androidOnly") String systemPort,
                          @Optional("androidOnly") String chromeDriverPort, @Optional("androidOnly") String emulator,
                          @Optional("iOSOnly") String wdaLocalPort, @Optional("iOSOnly") String webkitDebugProxyPort) throws IOException {
         PlatformManager.setPlatformName(platformName);
         DeviceManager.setDeviceName(deviceName);
         if (Objects.isNull(DriverManager.getDriver())) {
-            DriverFactory.initializeDriver(MobilePlatformName.valueOf(platformName.toUpperCase()), deviceName, udid, Integer.parseInt(systemPort), emulator);
+            DriverFactory.initializeDriver(MobilePlatformName.valueOf(platformName.toUpperCase()), deviceName, udid, Integer.parseInt(systemPort), emulator );
         }
         ScreenRecordingService.startRecording();
     }
